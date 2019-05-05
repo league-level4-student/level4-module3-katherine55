@@ -1,4 +1,4 @@
-package _02_gotta_catchem_all;
+ package _02_gotta_catchem_all;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,9 +30,15 @@ class ExceptionsTest {
 	//   should throw an IllegalArgumentException if the denominator is 0.0.
 	
 	//3. Complete the JUnit test method to test the divide method.
+	
 	@Test
 	public void testDivideByZeroException() {
-		
+		try {
+			em.divide(7,0);
+			fail("IllegalArgumentException not thrown");
+		} catch(IllegalArgumentException e) {
+			assertEquals(em.divide(7,7), 1);
+		}
 	}
 	
 	//4. In the ExceptionMethods class, write a method called reverseString that takes a
@@ -42,7 +48,12 @@ class ExceptionsTest {
 	//5. Complete the JUnit test method to test the reverseStringMethod.
 	@Test
 	public void testReverseString() {
-		
+		try {
+			em.reverseString("");
+			fail("IllegalStateException not thrown");
+		} catch(IllegalStateException e) {
+			assertEquals(em.reverseString("olleh"), "hello");
+		}
 	}
 	
 	
